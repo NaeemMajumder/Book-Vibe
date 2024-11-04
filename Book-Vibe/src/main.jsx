@@ -12,6 +12,7 @@ import{
 import Root from './Root.jsx';
 import ErrorPage from './ErrorPage.jsx';
 import Home from './Home.jsx';
+import BookDetails from './main/BookDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
         path:"/",
         // loader: fetch("booksData.json"),
         element: <Home></Home>
+      },
+      {
+        path:"/book/:bookId",
+        element:<BookDetails></BookDetails>,
+        loader: ()=> fetch("/booksData.json")
       },
       {
         path:"/random1",
